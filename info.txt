@@ -1,0 +1,13 @@
+The application shows high scores for many tables
+An individual table has many scores
+A score belongs to a table
+A score has a user
+
+tables controller
+index -> @tables = Table.all
+
+scores controller
+new
+create
+
+users controller
