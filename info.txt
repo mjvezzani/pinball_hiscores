@@ -1,13 +1,5 @@
-The application shows high scores for many tables
-An individual table has many scores
-A score belongs to a table
-A score has a user
+Table has_and_belongs_to_many :users
+User has_and_belongs_to_many :tables
+Table has_many :high_scores
 
-tables controller
-index -> @tables = Table.all
 
-scores controller
-new
-create
-
-users controller
