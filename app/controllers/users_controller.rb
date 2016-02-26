@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :require_user, except: [:new, :create]
+  # before_action :require_user, except: [:new, :create]
 
   def index
     redirect_to edit_user_path(current_user)
@@ -36,13 +36,13 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @user = User.find(current_user)
+    @user = User.find(current_user.id)
   end
 
   def update
-    @user = User.find(current_user)
+    @user = User.find(current_user.id)
 
-    if @user.update(user_params)
+    if @user.update!(user_params)
       flash[:success] = "You have successfully updated your profile"
       redirect_to user_path(@user)
     else
@@ -54,6 +54,6 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:username, :password, :password_confirmation)
+    params.require(:user).permit(:username, :password, :password_confirmation, {table_ids: []})
   end
 end

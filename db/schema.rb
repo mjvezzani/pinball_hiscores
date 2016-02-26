@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160225172342) do
+ActiveRecord::Schema.define(version: 20160226172156) do
 
   create_table "high_scores", force: :cascade do |t|
     t.integer  "table_id"
@@ -24,7 +24,18 @@ ActiveRecord::Schema.define(version: 20160225172342) do
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "season"
   end
+
+  create_table "tables_users", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "table_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "tables_users", ["table_id"], name: "index_tables_users_on_table_id"
+  add_index "tables_users", ["user_id"], name: "index_tables_users_on_user_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "username"

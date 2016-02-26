@@ -4,7 +4,8 @@ class TablesController < ApplicationController
   # GET /tables
   # GET /tables.json
   def index
-    @tables = Table.all
+    @tables = Table.all.order("name ASC")
+    @table = Table.new
   end
 
   # GET /tables/1
@@ -30,6 +31,7 @@ class TablesController < ApplicationController
       if @table.save
         format.html { redirect_to @table, notice: 'Table was successfully created.' }
         format.json { render :show, status: :created, location: @table }
+        format.js
       else
         format.html { render :new }
         format.json { render json: @table.errors, status: :unprocessable_entity }
