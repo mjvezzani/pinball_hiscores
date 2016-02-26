@@ -10,9 +10,6 @@ class UsersController < ApplicationController
   end
 
   def new
-    if logged_in?
-      redirect_to edit_user_path(current_user)
-    end
     @user = User.new
   end
 
