@@ -1,7 +1,7 @@
 class SessionsController < ApplicationController
   def new
     if logged_in?
-      redirect_to tables_path
+      redirect_to pins_path
     end
   end
 
@@ -11,7 +11,7 @@ class SessionsController < ApplicationController
     if user and user.authenticate(params[:password])
       session[:user_id] = user.id
       flash[:success] = "Welcome back, #{user.username}"
-      redirect_to tables_path
+      redirect_to pins_path
     else
       flash[:error] = "Your credentials appear to be incorrect. Please try again."
       render :new

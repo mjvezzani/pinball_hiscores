@@ -13,7 +13,7 @@
       <% if obj == 'new' %>
         <%= f.submit 'Register' %>
       <% else %>
-        <%= f.collection_check_boxes(:table_ids, Table.all.order("name ASC"), :id, :name) do |b|  %>
+        <%= f.collection_check_boxes(:pin_ids, Pin.all.order("name ASC"), :id, :name) do |b|  %>
           <%= b.label do %>
             <%= b.check_box + b.text %><br/>
           <% end %>

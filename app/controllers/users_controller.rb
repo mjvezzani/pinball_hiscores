@@ -21,7 +21,7 @@ class UsersController < ApplicationController
       session[:user_id] = @user.id
 
       if session[:user_id] == @user.id
-        redirect_to tables_path
+        redirect_to pins_path
       else
         session[:user_id] = nil
         redirect_to register_path
@@ -51,6 +51,6 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:username, :password, :password_confirmation, {table_ids: []})
+    params.require(:user).permit(:username, :password, :password_confirmation, {pin_ids: []})
   end
 end

@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   post "/login", to: "sessions#create"
   get "/logout", to: "sessions#destroy", as: "logout"
 
-  resources :tables do
+  resources :pins do
     resources :high_scores
   end
 

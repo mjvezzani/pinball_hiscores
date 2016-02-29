@@ -2,18 +2,18 @@
 
 <p>
   <strong>Name:</strong>
-  <%= @table.name %>
+  <%= @pin.name %>
 </p>
 
 <div class="high-scores">
-  <% if @table.high_scores.empty? != true %>
+  <% if @pin.high_scores.empty? != true %>
     <table>
       <tr>
         <th>Score</th>
         <th>Date</th>
         <th>Player</th>
       </tr>
-      <% @table.high_scores.order("score DESC").each do |x| %>
+      <% @pin.high_scores.order("score DESC").each do |x| %>
         <tr>
           <td><%= x.score %></td>
           <td><%= x.created_at %></td>
@@ -25,11 +25,11 @@
   <% end %>
 </div>
 
-<%= link_to 'Edit', edit_table_path(@table) %> |
-<%= link_to 'Back', tables_path %>
+<%= link_to 'Edit', edit_pin_path(@pin) %> |
+<%= link_to 'Back', pins_path %>
 
 <h3>Add a high score</h3>
-<%= form_for([@table, HighScore.new]) do |f| %>
+<%= form_for([@pin, HiScore.new]) do |f| %>
   <%= f.label :score %>
   <%= f.text_field :score %>
   <br/>

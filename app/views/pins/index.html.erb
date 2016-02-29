@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Pinball Tables</h1>
+
+<ul id="pin_list">
+  <%= render @pins %>
+</ul>
+
+<br>
+
+<%= link_to 'New Pin', new_pin_path %>
+<%= form_for(@pin, remote: true) do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name, class: "pin_info" %>
+  <br/>
+  <%= f.label :season %>
+  <%= f.text_field :season, class: "pin_info", id: "pin_name" %>
+  <br/>
+  <%= f.submit "Create pinball table", id: "submit_pin" %>
+<% end %>
