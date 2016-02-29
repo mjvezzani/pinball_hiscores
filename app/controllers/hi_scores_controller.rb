@@ -5,10 +5,10 @@ class HiScoresController < ApplicationController
 
     if @hi_score.save
       flash[:success] = "High score saved!"
-      redirect_to pin_path(@hi_score.table)
+      redirect_to pin_path(@hi_score.pin)
     else
       flash[:error] = "An error occurred"
-      redirect_to pin_path(@hi_score.table)
+      redirect_to pin_path(@hi_score.pin)
     end
   end
 
