@@ -1,0 +1,16 @@
+<div class="row">
+  <div class="col-md-6">
+    <h2>My tables</h2>
+    <ul>
+      <% @my_pins.each do |pin| %>
+        <li><%= link_to pin.name, pin_path(pin) %></li>
+      <% end %>
+    </ul>
+  </div>
+  <div class="col-md-6">
+    <h2>Tables available for a challenge</h2>
+    <% @common_pins.each do |pin| %>
+      <li><%= link_to pin.name, pin_path(pin) %></li>
+    <% end %>
+  </div>
+</div>

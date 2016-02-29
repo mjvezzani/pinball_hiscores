@@ -6,14 +6,9 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
-<body>
-  <% if logged_in? %>
-    <h3>Logged in as <%= current_user.username %>!</h3>
-    <%= link_to "Log out", logout_path %>
-  <% else %>
-    <%= link_to "Log in", login_path %>
-  <% end %>
-<%= yield %>
+<body class="container">
+  <%= render 'shared/nav' %>
+  <%= yield %>
 
 </body>
 </html>
