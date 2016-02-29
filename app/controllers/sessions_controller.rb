@@ -11,7 +11,7 @@ class SessionsController < ApplicationController
     if user and user.authenticate(params[:password])
       session[:user_id] = user.id
       flash[:success] = "Welcome back, #{user.username}"
-      redirect_to pins_path
+      redirect_to dashboard_path
     else
       flash[:error] = "Your credentials appear to be incorrect. Please try again."
       render :new
