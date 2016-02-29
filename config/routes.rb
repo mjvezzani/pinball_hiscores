@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   get "/logout", to: "sessions#destroy", as: "logout"
 
   resources :pins do
-    resources :high_scores
+    resources :hi_scores
   end
 
 

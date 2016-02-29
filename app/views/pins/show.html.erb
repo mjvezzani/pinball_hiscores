@@ -6,14 +6,14 @@
 </p>
 
 <div class="high-scores">
-  <% if @pin.high_scores.empty? != true %>
+  <% if @pin.hi_scores.empty? != true %>
     <table>
       <tr>
         <th>Score</th>
         <th>Date</th>
         <th>Player</th>
       </tr>
-      <% @pin.high_scores.order("score DESC").each do |x| %>
+      <% @pin.hi_scores.order("score DESC").each do |x| %>
         <tr>
           <td><%= x.score %></td>
           <td><%= x.created_at %></td>
