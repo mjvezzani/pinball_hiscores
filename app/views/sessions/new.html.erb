@@ -1,21 +1,22 @@
-<div>
-  <h2>Sign in</h2>
-  <hr/>
+<div class="row">
+  <div class="col-md-6">
+    <h2>Sign in</h2>
+    <hr/>
 
-  <%= form_tag "/login" do %>
-    <%= label_tag :username %>
-    <%= text_field_tag :username %>
-    <br/>
-    <%= label_tag :password %>
-    <%= password_field_tag :password %>
-    <br/>
-    <%= submit_tag "Take me to the pinball tables." %>
-  <% end %>
+    <%= form_tag "/login" do %>
+      <%= label_tag :username %>
+      <%= text_field_tag :username %>
+      <br/>
+      <%= label_tag :password %>
+      <%= password_field_tag :password %>
+      <br/>
+      <%= submit_tag "Take me to the pinball tables." %>
+    <% end %>
+  </div>
+
+  <div class="col-md-6">
+    <h2>Register</h2>
+    <h3><small>Need to register?</small></h3>
+    <%= link_to "Register", register_path %>
+  </div>
 </div>
-
-<div>
-  <h2>Register</h2>
-  <h3><small>Need to register?</small></h3>
-  <%= link_to "Register", register_path %>
-</div>
-
