@@ -1,37 +1,38 @@
 <p id="notice"><%= notice %></p>
 
-<p>
+<h1>
   <strong>Name:</strong>
   <%= @pin.name %>
-</p>
+</h1>
 
-<div class="high-scores">
-  <% if @pin.hi_scores.empty? != true %>
-    <table>
-      <tr>
-        <th>Score</th>
-        <th>Date</th>
-        <th>Player</th>
-      </tr>
-      <% @pin.hi_scores.order("score DESC").each do |x| %>
+<div class="row">
+  <div class="high-scores col-md-8">
+    <% if @pin.hi_scores.empty? != true %>
+      <table class="table">
         <tr>
-          <td><%= x.score %></td>
-          <td><%= x.created_at %></td>
+          <th>Score</th>
+          <th>Date</th>
+          <th>Player</th>
         </tr>
-      <% end %>
-    </table>
-  <% else %>
-    No high scores yet!
-  <% end %>
-</div>
+        <% @pin.hi_scores.order("score DESC").each do |x| %>
+          <tr>
+            <td><%= x.score %></td>
+            <td><%= x.created_at.strftime("%m/%d/%Y") %></td>
+            <td><%= x.user.username %></td>
+          </tr>
+        <% end %>
+      </table>
+    <% else %>
+      No high scores yet!
+    <% end %>
+  </div>
 
-<%= link_to 'Edit', edit_pin_path(@pin) %> |
-<%= link_to 'Back', pins_path %>
-
-<h3>Add a high score</h3>
-<%= form_for([@pin, HiScore.new]) do |f| %>
-  <%= f.label :score %>
-  <%= f.text_field :score %>
-  <br/>
-  <%= f.submit %>
-<% end %>
+  <div class="col-md-4">
+    <h3>Add a high score</h3>
+    <%= form_for([@pin, HiScore.new]) do |f| %>
+      <%= f.label :score %>
+      <%= f.text_field :score %>
+      <br/>
+      <%= f.submit %>
+    <% end %>
+  </div>

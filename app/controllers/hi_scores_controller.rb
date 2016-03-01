@@ -2,6 +2,7 @@ class HiScoresController < ApplicationController
   def create
     @pin = Pin.find(params[:pin_id])
     @hi_score = @pin.hi_scores.build(hi_score_params)
+    @hi_score.user = current_user
 
     if @hi_score.save
       flash[:success] = "High score saved!"
