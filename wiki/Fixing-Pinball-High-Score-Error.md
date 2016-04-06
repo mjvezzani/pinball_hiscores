@@ -48,7 +48,7 @@ createdb pball_dev2
 pg_restore --verbose --clean -h localhost -U davidvezzani -d pball_development db/latest.dump
 
 psql -d postgres -U davidvezzani
-create user pball_admin with password 'pass13!#';
+create user pball_admin with password 'xxxxxx';
 GRANT ALL ON DATABASE pball_development TO pball_admin; 
 ```
 
